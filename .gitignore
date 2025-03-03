@@ -1,0 +1,38 @@
+# Ignora arquivos de compilação
+*.class
+
+# Ignora arquivos de configuração do NetBeans
+.nb-gradle/
+nbproject/
+
+# Ignora diretórios de build
+/target/
+/build/
+/dist/
+
+# Ignora arquivos temporários do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Ignora arquivos de log
+*.log
+
+# Ignora arquivos de dependências locais (Maven, por exemplo)
+/.m2/
+
+# Ignora arquivos de compilação do Gradle (se usar Gradle)
+.gradle/
+build/
+
+# Ignora arquivos de compilação do Maven (se usar Maven)
+*.jar
+*.war
+*.ear
+
+# Ignora arquivos temporários criados por editores (como Sublime, VSCode, etc.)
+*.sublime-workspace
+*.sublime-project
+.vscode/
+
+# Ignora arquivos de configurações do IntelliJ IDEA (caso use)
+.idea/
