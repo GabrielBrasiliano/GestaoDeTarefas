@@ -10,7 +10,23 @@ package gestaodetarefas.dao;
  */
 public class ExceptionDAO extends Exception {
 
+    // Construtor padrão
+    public ExceptionDAO() {
+        super("Erro de acesso ao banco de dados.");
+    }
+
+    // Construtor que aceita uma mensagem personalizada
     public ExceptionDAO(String mensagem) {
         super(mensagem);
+    }
+
+    // Construtor que aceita uma mensagem e a causa do erro (SQLException, por exemplo)
+    public ExceptionDAO(String mensagem, Throwable causa) {
+        super(mensagem, causa);
+    }
+
+    // Construtor que aceita apenas a causa
+    public ExceptionDAO(Throwable causa) {
+        super(causa);
     }
 }
