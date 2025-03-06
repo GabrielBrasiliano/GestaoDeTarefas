@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gestaodetarefas.dao;
 
 import java.sql.Connection;
@@ -10,40 +5,45 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- *
+ * Classe responsável por realizar a manipulação de dados da entidade Usuario no banco de dados.
+ * 
  * @author GabrielBrasiliano
  */
 public class DAO {
 
     private static final String URL = "jdbc:postgresql://127.0.0.1:5432/gestaodetarefas";
-    private static final String USER = "postgres";
-    private static final String PASSWORD = "admin";
-    private static Connection connection;
+    private static final String USER = System.getenv("DB_USER");
+    private static final String PASSWORD = System.getenv("DB_PASSWORD");
 
-    // Construtor privado para evitar instâncias diretas
-    private DAO() {}
-
-    // Método para obter a conexão única (Singleton)
-    public static Connection getConnection() {
-        if (connection == null) {
-            try {
-                connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                System.out.println("Conexão estabelecida com sucesso!");
-            } catch (SQLException e) {
-                System.err.println("Erro ao conectar ao banco: " + e.getMessage());
-            }
+    static {
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("Erro ao carregar o driver do PostgreSQL", e);
         }
-        return connection;
     }
 
-    // Método para fechar a conexão (boa prática)
-    public static void closeConnection() {
-        if (connection != null) {
+    /**
+     * Obtém uma conexão com o banco de dados PostgreSQL.
+     * 
+     * @return Objeto Connection estabelecendo a conexão com o banco de dados.
+     * @throws SQLException Se ocorrer um erro ao conectar ao banco de dados.
+     */
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASSWORD);
+    }
+
+    /**
+     * Fecha a conexão com o banco de dados, se estiver aberta.
+     * 
+     * @param con Objeto Connection a ser fechado.
+     */
+    public static void closeConnection(Connection con) {
+        if (con != null) {
             try {
-                connection.close();
-                System.out.println("Conexão fechada.");
+                con.close();
             } catch (SQLException e) {
-                System.err.println("Erro ao fechar conexão: " + e.getMessage());
+                e.printStackTrace();
             }
         }
     }
