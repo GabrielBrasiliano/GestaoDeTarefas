@@ -7,14 +7,14 @@ import java.util.List;
 
 /**
  * Classe responsável por realizar a manipulação de dados da entidade Usuario no banco de dados.
- * 
+ *
  * @author GabrielBrasiliano
  */
 public class UsuarioDAO extends DAO {
 
     /**
      * Insere um novo usuário no banco de dados.
-     * 
+     *
      * @param usuario Objeto Usuario contendo os dados a serem inseridos.
      */
     public void inserirUsuario(Usuario usuario) {
@@ -46,7 +46,7 @@ public class UsuarioDAO extends DAO {
 
     /**
      * Lista todos os usuários cadastrados no banco de dados.
-     * 
+     *
      * @return Lista de objetos Usuario contendo os dados dos usuários.
      */
     public List<Usuario> listarUsuarios() {
@@ -61,6 +61,7 @@ public class UsuarioDAO extends DAO {
 
             while (rs.next()) {
                 Usuario u = new Usuario();
+                u.setId(rs.getLong("id"));
                 u.setNome(rs.getString("nome"));
                 u.setEmail(rs.getString("email"));
                 u.setFone(rs.getString("fone"));
@@ -85,7 +86,7 @@ public class UsuarioDAO extends DAO {
 
     /**
      * Atualiza os dados de um usuário no banco de dados.
-     * 
+     *
      * @param usuario Objeto Usuario contendo os dados atualizados.
      */
     public void atualizarUsuario(Usuario usuario) {
@@ -94,13 +95,15 @@ public class UsuarioDAO extends DAO {
 
         try {
             con = DAO.getConnection();
-            stmt = con.prepareStatement("UPDATE usuario SET nome = ?, email = ? WHERE id = ?");
+            stmt = con.prepareStatement("UPDATE usuario SET nome = ?, email = ?, fone = ? WHERE id = ?");
 
             stmt.setString(1, usuario.getNome());
             stmt.setString(2, usuario.getEmail());
-            stmt.setLong(3, usuario.getId());
+            stmt.setString(3, usuario.getFone());
+            stmt.setLong(4, usuario.getId());
 
             stmt.executeUpdate();
+            
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -117,7 +120,7 @@ public class UsuarioDAO extends DAO {
 
     /**
      * Remove um usuário do banco de dados.
-     * 
+     *
      * @param usuario Objeto Usuario contendo o ID do usuário a ser removido.
      */
     public void deletarUsuario(Usuario usuario) {

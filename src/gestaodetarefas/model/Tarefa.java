@@ -10,18 +10,10 @@ package gestaodetarefas.model;
  */
 public class Tarefa {
 
-    private String nome;
+    private long id;
+    private String titulo;
     private String descricao;
-    private String status;
-
-    // Getters e Setters
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    private boolean status;
 
     public String getDescricao() {
         return descricao;
@@ -31,11 +23,39 @@ public class Tarefa {
         this.descricao = descricao;
     }
 
-    public String getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    /**
+     * @return the id
+     */
+    public long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the titulo
+     */
+    public String getTitulo() {
+        return titulo;
+    }
+
+    /**
+     * @param titulo the titulo to set
+     */
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 }
