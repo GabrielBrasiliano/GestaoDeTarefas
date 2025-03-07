@@ -4,27 +4,25 @@
  */
 package gestaodetarefas;
 
-import gestaodetarefas.view.MainFrame;
-import javax.swing.JOptionPane;
+import gestaodetarefas.view.LogonView;
+import gestaodetarefas.view.MainView;
+import javax.swing.SwingUtilities;
 
 /**
  *
- * @author Ceres
+ * @author GabrielBrasiliano
  */
 public class Main {
 
     public static void main(String args[]) {
-        MainFrame menu = null;
 
-        try {
-            menu = MainFrame.getInstance();
+        SwingUtilities.invokeLater(() -> {
+            LogonView login = new LogonView(null);
+            login.setVisible(true);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, e.getMessage() + e.getMessage(), "Erro!", JOptionPane.ERROR_MESSAGE);
-            System.exit(0);
-        }
-
-        menu.setVisible(true);
+            if (login.isAutenticado()) {
+                new MainView(login.getUsuario());
+            }
+        });
     }
 }

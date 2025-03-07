@@ -14,6 +14,8 @@ public class Usuario {
     private String nome;
     private String email;
     private String fone;
+    private String login;
+    private String senha;
 
     /**
      * @return the nome
@@ -69,6 +71,34 @@ public class Usuario {
      */
     public void setId(long id) {
         this.id = id;
+    }
+
+    /**
+     * @return the login
+     */
+    public String getLogin() {
+        return login;
+    }
+
+    /**
+     * @param login the login to set
+     */
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    /**
+     * @return the senha
+     */
+    public String getSenha() {
+        return senha;
+    }
+
+    /**
+     * @param senha the senha to set
+     */
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
 }

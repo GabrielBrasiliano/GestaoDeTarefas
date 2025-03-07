@@ -5,7 +5,7 @@
 package gestaodetarefas.controller;
 
 import gestaodetarefas.model.Tarefa;
-import gestaodetarefas.view.MainFrame;
+import gestaodetarefas.view.MainView;
 import java.util.List;
 
 /**
@@ -14,10 +14,10 @@ import java.util.List;
  */
 public class Controlador {
 
-    private MainFrame view;
+    private MainView view;
     private List<Tarefa> model;
 
-    public Controlador(MainFrame view, List<Tarefa> model) {
+    public Controlador(MainView view, List<Tarefa> model) {
         this.view = view;
         this.model = model;
     }

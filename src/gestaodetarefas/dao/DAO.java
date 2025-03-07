@@ -6,14 +6,14 @@ import java.sql.SQLException;
 
 /**
  * Classe responsável por realizar a manipulação de dados da entidade Usuario no banco de dados.
- * 
+ *
  * @author GabrielBrasiliano
  */
 public class DAO {
 
     private static final String URL = "jdbc:postgresql://127.0.0.1:5432/gestaodetarefas";
-    private static final String USER = System.getenv("DB_USER");
-    private static final String PASSWORD = System.getenv("DB_PASSWORD");
+    private static final String USER = "postgres";
+    private static final String PASSWORD = "admin";
 
     static {
         try {
@@ -25,7 +25,7 @@ public class DAO {
 
     /**
      * Obtém uma conexão com o banco de dados PostgreSQL.
-     * 
+     *
      * @return Objeto Connection estabelecendo a conexão com o banco de dados.
      * @throws SQLException Se ocorrer um erro ao conectar ao banco de dados.
      */
@@ -35,7 +35,7 @@ public class DAO {
 
     /**
      * Fecha a conexão com o banco de dados, se estiver aberta.
-     * 
+     *
      * @param con Objeto Connection a ser fechado.
      */
     public static void closeConnection(Connection con) {

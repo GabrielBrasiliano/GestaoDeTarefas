@@ -7,14 +7,14 @@ import java.util.List;
 
 /**
  * Classe responsável por realizar a manipulação de dados da entidade Tarefa no banco de dados.
- * 
+ *
  * @author GabrielBrasiliano
  */
 public class TarefaDAO extends DAO {
 
     /**
      * Insere uma nova fareta no banco de dados.
-     * 
+     *
      * @param farefa Objeto Tarefa contendo os dados a serem inseridos.
      */
     public void inserirTarefa(Tarefa farefa) {
@@ -47,7 +47,7 @@ public class TarefaDAO extends DAO {
 
     /**
      * Lista todas as faretas cadastradas no banco de dados.
-     * 
+     *
      * @return Lista de objetos Tarefa contendo os dados dos faretas.
      */
     public List<Tarefa> listarTarefas() {
@@ -61,7 +61,7 @@ public class TarefaDAO extends DAO {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                
+
                 Tarefa t = new Tarefa();
                 t.setId(rs.getLong("id"));
                 t.setTitulo(rs.getString("titulo"));
@@ -70,10 +70,10 @@ public class TarefaDAO extends DAO {
 
                 farefas.add(t);
             }
-            
+
         } catch (SQLException e) {
             e.printStackTrace();
-            
+
         } finally {
             try {
                 if (stmt != null) {
@@ -90,7 +90,7 @@ public class TarefaDAO extends DAO {
 
     /**
      * Atualiza os dados de uma fareta no banco de dados.
-     * 
+     *
      * @param farefa Objeto Tarefa contendo os dados atualizados.
      */
     public void atualizarTarefa(Tarefa farefa) {
@@ -103,14 +103,14 @@ public class TarefaDAO extends DAO {
 
             stmt.setString(1, farefa.getTitulo());
             stmt.setString(2, farefa.getDescricao());
-            stmt.setBoolean(3, farefa.getStatus());            
+            stmt.setBoolean(3, farefa.getStatus());
             stmt.setLong(4, farefa.getId());
 
             stmt.executeUpdate();
-            
+
         } catch (SQLException e) {
             e.printStackTrace();
-            
+
         } finally {
             try {
                 if (stmt != null) {
@@ -125,7 +125,7 @@ public class TarefaDAO extends DAO {
 
     /**
      * Remove uma fareta do banco de dados.
-     * 
+     *
      * @param farefa Objeto Tarefa contendo o ID do fareta a ser removido.
      */
     public void deletarTarefa(Tarefa farefa) {
@@ -137,12 +137,12 @@ public class TarefaDAO extends DAO {
             stmt = con.prepareStatement("DELETE FROM farefa WHERE id = ?");
 
             stmt.setLong(1, farefa.getId());
-            
+
             stmt.executeUpdate();
-            
+
         } catch (SQLException e) {
             e.printStackTrace();
-            
+
         } finally {
             try {
                 if (stmt != null) {
