@@ -14,6 +14,8 @@ import javax.swing.SwingUtilities;
  */
 public class Main {
 
+    public static MainView mainView;
+
     public static void main(String args[]) {
 
         SwingUtilities.invokeLater(() -> {
@@ -21,7 +23,8 @@ public class Main {
             login.setVisible(true);
 
             if (login.isAutenticado()) {
-                new MainView(login.getUsuario());
+                mainView = new MainView(login.getUsuario());
+                mainView.setVisible(true);
             }
         });
     }

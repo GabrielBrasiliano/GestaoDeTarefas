@@ -53,8 +53,8 @@ public class UsuarioDAO extends DAO {
         try {
             conexao = DAO.getConnection();
             stmt = conexao.prepareStatement("SELECT * FROM usuario WHERE login = ? AND senha = ?");
-            stmt.setString(1, usuario.getLogin());
-            stmt.setString(2, usuario.getSenha());
+            stmt.setString(1, login);
+            stmt.setString(2, senha);
 
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
