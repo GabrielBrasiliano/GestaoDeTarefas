@@ -5,7 +5,7 @@
 package gestaodetarefas.view;
 
 import gestaodetarefas.controller.LogonController;
-import gestaodetarefas.model.Usuario;
+import gestaodetarefas.model.entities.Usuario;
 import javax.swing.JOptionPane;
 
 /**

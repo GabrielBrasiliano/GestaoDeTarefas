@@ -4,7 +4,7 @@
  */
 package gestaodetarefas.view;
 
-import gestaodetarefas.model.Usuario;
+import gestaodetarefas.model.entities.Usuario;
 
 /**
  *

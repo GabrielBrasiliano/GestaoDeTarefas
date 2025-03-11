@@ -1,6 +1,6 @@
-package gestaodetarefas.dao;
+package gestaodetarefas.model.dao;
 
-import gestaodetarefas.model.Usuario;
+import gestaodetarefas.model.entities.Usuario;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

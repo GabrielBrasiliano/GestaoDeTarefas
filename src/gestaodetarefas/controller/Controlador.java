@@ -4,7 +4,7 @@
  */
 package gestaodetarefas.controller;
 
-import gestaodetarefas.model.Tarefa;
+import gestaodetarefas.model.entities.Tarefa;
 import gestaodetarefas.view.MainView;
 import java.util.List;
 

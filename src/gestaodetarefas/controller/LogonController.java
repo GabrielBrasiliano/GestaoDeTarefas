@@ -4,8 +4,8 @@
  */
 package gestaodetarefas.controller;
 
-import gestaodetarefas.dao.UsuarioDAO;
-import gestaodetarefas.model.Usuario;
+import gestaodetarefas.model.dao.UsuarioDAO;
+import gestaodetarefas.model.entities.Usuario;
 import javax.swing.JOptionPane;
 
 /**
