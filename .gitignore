@@ -1,0 +1,44 @@
+# Ignorar diretórios de compilação e dependências
+target/
+out/
+bin/
+
+# Ignorar arquivos do Maven
+.mvn/
+.mvn/wrapper/
+!mvn/wrapper/maven-wrapper.jar
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Ignorar configurações do IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Ignorar configurações do VS Code
+.vscode/
+
+# Ignorar arquivos de log e temporários
+*.log
+*.tmp
+hs_err_pid*
+
+# Ignorar arquivos de cache do NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+generated-sources/
+generated-test-sources/
+
+# Ignorar dependências baixadas pelo Maven
+**/dependency-reduced-pom.xml
+
+# Ignorar credenciais e configurações locais
+*.env
+*.properties
+*.db
